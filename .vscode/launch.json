@@ -1,0 +1,44 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "prepare_calib_data",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/prepare_calib_data.py",
+            "console": "integratedTerminal",
+            "justMyCode": false
+        },
+        {
+            "name": "run_activation_cache",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/run_activation_cache.py",
+            "args": [
+                "--model_a", "meta-llama/Meta-Llama-3-8B-Instruct",
+                "--model_b", "TechxGenus/Meta-Llama-3-8B-Instruct-Coder",
+                "--calib",   "data/calib_mixed_150.jsonl",
+                "--out_dir", "data/"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": false
+        },
+        {
+            "name": "run_merge",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/run_merge.py",
+            "args": [
+                "--model_a",   "meta-llama/Meta-Llama-3-8B-Instruct",
+                "--model_b",   "TechxGenus/Meta-Llama-3-8B-Instruct-Coder",
+                "--sens_a",    "data/sensitivity_A.pt",
+                "--sens_b",    "data/sensitivity_B.pt",
+                "--conflicts", "data/conflict_rates.pt",
+                "--out_dir",   "outputs/merged_model",
+                "--threshold", "0.8"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": false
+        }
+    ]
+}
