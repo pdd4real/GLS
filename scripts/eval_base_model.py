@@ -166,7 +166,12 @@ def main():
     parser.add_argument("--output", default="results/base_model_eval.json")
     parser.add_argument("--batch_size", type=int, default=8)
     parser.add_argument("--max_new_tokens", type=int, default=512)
+    parser.add_argument("--gpus", type=str, default=None,
+                        help="CUDA_VISIBLE_DEVICES, e.g. '0' or '0,1'")
     args = parser.parse_args()
+
+    if args.gpus is not None:
+        os.environ["CUDA_VISIBLE_DEVICES"] = args.gpus
 
     from transformers import AutoModelForCausalLM, AutoTokenizer
     import torch

@@ -29,9 +29,10 @@
             "request": "launch",
             "program": "${workspaceFolder}/scripts/eval_base_model.py",
             "args": [
-                "--model", "meta-llama/Meta-Llama-3-8B-Instruct",
+                "--model", "models/Meta-Llama-3-8B-Instruct",
                 "--tasks", "gsm8k", "humaneval",
-                "--output", "results/base_model_eval.json"
+                "--output", "results/base_model_eval.json",
+                "--gpus", "0"
             ],
             "console": "integratedTerminal",
             "justMyCode": false
