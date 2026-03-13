@@ -1,0 +1,28 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "prepare_calib_data",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/prepare_calib_data.py",
+            "args": ["--output", "data/calib_mixed_150.jsonl"],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "run_merge (CPU)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/run_merge.py",
+            "args": [
+                "--model_a", "RLHFlow/LLaMA3-iterative-DPO-final",
+                "--model_b", "TechxGenus/Meta-Llama-3-8B-Instruct-Coder",
+                "--sens_a",  "outputs/S_A.pt",
+                "--sens_b",  "outputs/S_B.pt",
+                "--conflict_threshold", "0.8",
+                "--output_dir", "outputs/merged_model/"
+            ],
+            "console": "integratedTerminal"
+        }
+    ]
+}
