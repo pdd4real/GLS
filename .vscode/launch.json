@@ -24,6 +24,19 @@
             "justMyCode": false
         },
         {
+            "name": "eval_base_model",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/eval_base_model.py",
+            "args": [
+                "--model", "meta-llama/Meta-Llama-3-8B-Instruct",
+                "--tasks", "gsm8k", "humaneval",
+                "--output", "results/base_model_eval.json"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": false
+        },
+        {
             "name": "run_merge",
             "type": "debugpy",
             "request": "launch",
